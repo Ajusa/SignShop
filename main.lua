@@ -14,9 +14,9 @@ function OnUpdatedSign(World, BlockX, BlockY, BlockZ, Line1, Line2, Line3, Line4
 end
 function OnPlayerRightClick(Player, BlockX, BlockY, BlockZ, BlockFace, CursorX, CursorY, CursorZ)
 	local world = Player:GetWorld()
-	here, line1,buying,selling,item = world:GetSignLines(BlockX,BlockY,BlockZ)
+	here,line1,buying,selling,item = world:GetSignLines(BlockX,BlockY,BlockZ)
 
-	if line1 == "[SignShop]" then
+	if line1 == "[SignShop]" and here then
 		Player:SendMessage("You are using a sign shop :)")
 		return true
 	end
