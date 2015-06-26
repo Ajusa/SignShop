@@ -14,10 +14,10 @@ function OnUpdatedSign(World, BlockX, BlockY, BlockZ, Line1, Line2, Line3, Line4
 end
 function OnPlayerRightClick(Player, BlockX, BlockY, BlockZ, BlockFace, CursorX, CursorY, CursorZ)
 	local world = Player:GetWorld()
+	local PluginMan = cRoot:Get():GetPluginManager()
 	here,line1,buying,selling,item = world:GetSignLines(BlockX,BlockY,BlockZ)
-
 	if line1 == "[SignShop]" and here then
-		Player:SendMessage("You are using a sign shop :)")
+		PluginMan:CallPlugin("Coiny", "removeMoneyByName", Player:GetName(), tonumber(buying))
 		return true
 	end
 	return false
